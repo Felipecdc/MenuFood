@@ -28,14 +28,13 @@ export function Header() {
             <a href='#'>
                 <FaWhatsapp size={25} color='white'/>
             </a>
-            <a href='#'>
-                <FaInstagram size={25} color='white'/>
-            </a>
             <a 
               href='https://www.instagram.com/felipe_castroz/'
               target='_blank'
               rel="noopener noreferrer"  
-            >
+            >                <FaInstagram size={25} color='white'/>
+            </a>
+            <a href='#'>
                 <FaFacebook size={25} color='white'/>
             </a>
         </div>
