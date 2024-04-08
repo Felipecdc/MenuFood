@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 
 import { storage, db } from "../../services/firebase";
 import { uploadBytes, ref, getDownloadURL, deleteObject } from 'firebase/storage';
-import { addDoc, collection, getDocs, query, where, updateDoc, doc, setDoc, startAfter, endBefore, deleteDoc, getDoc } from 'firebase/firestore';
+import { addDoc, collection, getDocs, query, where, updateDoc, doc, setDoc, startAfter, endBefore, deleteDoc } from 'firebase/firestore';
 
 import { Container } from "../../components/container";
 import { Mosaic } from "../../components/mosaic";
@@ -44,7 +44,6 @@ export function Dashboard(){
 
     const { user } = useContext(AuthContext);
 
-    const [mosaic, setMosaic] = useState<MosaicProps[]>([]);
     const [mosaicSelected, setMosaicSelected] = useState<MosaicProps[]>([]);
     const [updateMosaic, setUpdateMosaic] = useState<boolean>(false)
 
@@ -86,11 +85,9 @@ export function Dashboard(){
             try{
                 const mosaicCollection = collection(db, 'mosaic');
                 const mosaicSnapshot = await getDocs(mosaicCollection);
-                const mosaicFind = mosaicSnapshot.docs.map(doc => doc.data() as MosaicProps)
                 const mosaicStatus = mosaicSnapshot.docs
                     .filter(doc => doc.data().status === true)
                     .map(doc => doc.data() as MosaicProps)
-                setMosaic(mosaicFind)
                 setMosaicSelected(mosaicStatus)
             }catch(err){
                 console.log(err)

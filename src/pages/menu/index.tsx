@@ -38,7 +38,6 @@ export function Menu(){
         document.title = "Menu - Abigail Coffee";
     }, [])
 
-    const [mosaic, setMosaic] = useState<MosaicProps[]>([]);
     const [mosaicSelected, setMosaicSelected] = useState<MosaicProps[]>([]);
 
     const [category, setCategory] = useState<CategoryProps[]>([]);
@@ -55,13 +54,10 @@ export function Menu(){
         async function fetchMosaic(){
             try{
                 onSnapshot(collection(db, 'mosaic'), (snapshot) => {
-                    const mosaicFind = snapshot.docs.map(doc => doc.data() as MosaicProps);
                     const mosaicStatus = snapshot.docs
                         .filter(doc => doc.data().status === true)
                         .map(doc => doc.data() as MosaicProps);
-                    setMosaic(mosaicFind);
                     setMosaicSelected(mosaicStatus);
-                    alert('chamou')
                 })
             }catch(err){
                 console.log(err)
@@ -87,7 +83,6 @@ export function Menu(){
                     const categorySnapshot = snapshot.docs.map(doc => doc.data() as CategoryProps);
                     setCategory([{name: 'Todos'}, ...categorySnapshot])
                 });
-                alert('chamouwwwww')
             }catch(err){
                 console.log(err)
             }
