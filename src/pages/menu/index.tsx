@@ -54,13 +54,14 @@ export function Menu(){
     useEffect(() => {
         async function fetchMosaic(){
             try{
-                const mosaicSnapshot = onSnapshot(collection(db, 'mosaic'), (snapshot) => {
+                onSnapshot(collection(db, 'mosaic'), (snapshot) => {
                     const mosaicFind = snapshot.docs.map(doc => doc.data() as MosaicProps);
                     const mosaicStatus = snapshot.docs
                         .filter(doc => doc.data().status === true)
                         .map(doc => doc.data() as MosaicProps);
                     setMosaic(mosaicFind);
                     setMosaicSelected(mosaicStatus);
+                    alert('chamou')
                 })
             }catch(err){
                 console.log(err)
@@ -82,10 +83,11 @@ export function Menu(){
         FetchProducts();
         async function FetchCategories(){
             try{
-                const findCategory = onSnapshot(collection(db, 'categorias'), (snapshot) => {
+                onSnapshot(collection(db, 'categorias'), (snapshot) => {
                     const categorySnapshot = snapshot.docs.map(doc => doc.data() as CategoryProps);
                     setCategory([{name: 'Todos'}, ...categorySnapshot])
                 });
+                alert('chamouwwwww')
             }catch(err){
                 console.log(err)
             }
