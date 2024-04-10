@@ -8,7 +8,7 @@ import { FiSearch, FiTrash } from "react-icons/fi";
 import { toast } from "react-toastify";
 
 import { storage, db } from "../../services/firebase";
-import { uploadBytes, ref, getDownloadURL, deleteObject } from 'firebase/storage';
+import { uploadBytes, ref, getDownloadURL, deleteObject, listAll } from 'firebase/storage';
 import { addDoc, collection, getDocs, query, where, updateDoc, doc, setDoc, startAfter, endBefore, deleteDoc } from 'firebase/firestore';
 
 import { Container } from "../../components/container";

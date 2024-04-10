@@ -22,7 +22,7 @@ export function Items({ productItems }: ProductsProps){
                         <span className="text-sm lg:text-lg break-all line-clamp-3 text-gray-500" >{description}</span>
                         <h1 className="font-bold text-lg lg:text-2xl">R${price}</h1>
                     </div>
-                    <div className="flex max-w-24 min-w-24 max-h-24 min-h-24 rounded-lg items-center justify-center bg-gray-300 overflow-hidden relative
+                    <div className="flex max-w-28 min-w-28 max-h-28 min-h-28 rounded-lg items-center justify-center bg-gray-300 overflow-hidden relative
                     lg:min-w-32 lg:min-h-32
                     ">
                         <img 
