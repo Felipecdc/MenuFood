@@ -8,7 +8,7 @@ import { FiSearch, FiTrash } from "react-icons/fi";
 import { toast } from "react-toastify";
 
 import { storage, db } from "../../services/firebase";
-import { uploadBytes, ref, getDownloadURL, deleteObject, listAll } from 'firebase/storage';
+import { uploadBytes, ref, getDownloadURL, deleteObject } from 'firebase/storage';
 import { addDoc, collection, getDocs, query, where, updateDoc, doc, setDoc, startAfter, endBefore, deleteDoc } from 'firebase/firestore';
 
 import { Container } from "../../components/container";
@@ -34,6 +34,7 @@ interface ItemFoundProps {
     description: string;
     price: string | Number;
     imageUrl: string;
+    imageName: string
 }
 
 export function Dashboard(){
@@ -223,7 +224,7 @@ export function Dashboard(){
             }
         }
 
-        const { url } = ItemImage;
+        const { url, name } = ItemImage;
         
         try{
             await addDoc(collection(db, 'produtos'), {
@@ -232,6 +233,7 @@ export function Dashboard(){
                 price,
                 category,
                 imageUrl: url,
+                imageName: name
             })
             toast.success('Produto registrado no banco!')
             const refsToClear = [titleRef, descriptionRef, priceRef, newCategoryRef];
@@ -430,6 +432,12 @@ export function Dashboard(){
                 return;
             }
 
+            const productData = productDoc.data() as ItemFoundProps;
+            const imageName = productData.imageName;
+            console.log(imageName)
+            const imageRef = ref(storage, `images/${user?.uid}/${imageName}`);
+            await deleteObject(imageRef)
+
             const itemCategoryRef = productDoc.data().category;
             const productsWithSameCategory = productSnapshot.docs.filter(doc => doc.data().category === itemCategoryRef);
             if(productsWithSameCategory.length === 1){
@@ -450,7 +458,6 @@ export function Dashboard(){
                 searchItemRef.current.value = '';
             }
             setItemFound(null)
-            alert('Produto excluído com sucesso!');
         }catch(err){
             toast.error('Erro na requisição!')
             console.log(err)

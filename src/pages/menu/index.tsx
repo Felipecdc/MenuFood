@@ -4,7 +4,7 @@ import { useEffect, useState, useRef, MouseEvent } from "react"
 import { FaWhatsapp, FaFacebook, FaInstagram } from "react-icons/fa";
 
 import { db } from "../../services/firebase";
-import { collection, getDocs, onSnapshot, query, where } from 'firebase/firestore';
+import { collection, getDocs, onSnapshot } from 'firebase/firestore';
 
 import { toast } from "react-toastify";
 
@@ -43,6 +43,7 @@ export function Menu(){
     const [category, setCategory] = useState<CategoryProps[]>([]);
 
     const [products, setProducts] = useState<ItemsProps[]>([]);
+    const [allProducts, setAllProducts] = useState<ItemsProps[]>([]);
 
     const [yourFavor, setYouFavor] = useState<string>('');
     const [isDragging, setIsDragging] = useState(false);
@@ -72,6 +73,7 @@ export function Menu(){
                 const findItem = await getDocs(collection(db, 'produtos'));
                 const productsData = findItem.docs.map(doc => doc.data() as ItemsProps);
                 setProducts(productsData)
+                setAllProducts(productsData)
             }catch(err){
                 console.log(err)
             }
@@ -98,15 +100,17 @@ export function Menu(){
         }
 
         try{
-            const productRef = collection(db, 'produtos');
-            const productSnapshot = await getDocs(query(productRef, where('title', '==', yourFavor)))
-            if(productSnapshot.empty){
+            const filterItems = allProducts.filter(value => {
+                return value.title.toUpperCase().includes(yourFavor.trim().toUpperCase());
+            })
+
+            if(filterItems.length === 0){
                 toast.error('Nenhum produto encontrado com esse nome');
-                return;
-            };
-            const productData = productSnapshot.docs.map(doc => doc.data() as ItemsProps)
+                return
+            }
+
+            setProducts(filterItems)
             toast.success('Produto encontrado!')
-            setProducts(productData)
         }catch(err){
             console.log(err);
             toast.error('Ocorreu um erro ao buscar o produto');
@@ -135,17 +139,21 @@ export function Menu(){
     async function handleSelect(name: string){
         try{
             if(name === 'Todos'){
-                const findItem = await getDocs(collection(db, 'produtos'));
-                const productsData = findItem.docs.map(doc => doc.data() as ItemsProps);
-                setProducts(productsData)
+
+                setProducts(allProducts)
                 return;
             }
 
-            const productsRef = collection(db, 'produtos');
-            const productsQuery = query(productsRef, where('category', '==', name));
-            const productsSnapshot = await getDocs(productsQuery);
-            const productsData = productsSnapshot.docs.map(doc => doc.data() as ItemsProps);
-            setProducts(productsData)
+            const filterItems = allProducts.filter(value => {
+                return value.category == name;
+            })
+
+            if(filterItems.length === 0){
+                toast.error('Nenhum produto encontrado nessa categoria');
+                return
+            }
+
+            setProducts(filterItems)
         }catch(err){
             console.log(err)
         }

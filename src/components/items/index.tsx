@@ -23,7 +23,7 @@ export function Items({ productItems }: ProductsProps){
                         <h1 className="font-bold text-lg lg:text-2xl">R${price}</h1>
                     </div>
                     <div className="flex max-w-28 min-w-28 max-h-28 min-h-28 rounded-lg items-center justify-center bg-gray-300 overflow-hidden relative
-                    lg:min-w-32 lg:min-h-32
+                    lg:min-w-36 lg:min-h-32
                     ">
                         <img 
                             src={imageUrl} 
