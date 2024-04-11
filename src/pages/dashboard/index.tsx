@@ -107,7 +107,7 @@ export function Dashboard(){
 
         try{
             const productRef = collection(db, 'produtos');
-            const productSnapshot = await getDocs(query(productRef, where('title', '==', productName)))
+            const productSnapshot = await getDocs(query(productRef, where('title', '==', productName?.trim())))
             
             if(productSnapshot.empty){
                 toast.error('Nenhum produto encontrado com esse nome!');
@@ -472,7 +472,7 @@ export function Dashboard(){
             </div>
             <div className="w-full max-w-900 lg:min-w-900 p-5">
                 <div className="flex h-20 p-2 items-center justify-between bg-white rounded-lg">                    
-                    <h1 className="text-lg font-bold">Alterar Mostruario</h1>
+                    <h1 className="text-lg md:text-xl font-bold">Alterar Mostruario</h1>
                     <div className="flex items-center justify-center gap-2">
                         <button className="flex w-7 h-7 items-center justify-center rounded-md bg-gray-400"
                             onClick={handlePrev}
