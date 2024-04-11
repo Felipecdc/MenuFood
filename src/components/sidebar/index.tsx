@@ -28,11 +28,11 @@ export function SideBar({ isClose }: SideBarProps) {
                 </a>
                 <a href='#' className='flex gap-2 mb-5'>
                     <FaInstagram size={25} color='black'/>
-                    <h3>@Name.coffee</h3>
+                    <h3>@name.official</h3>
                 </a>
                 <a href='#' className='flex gap-2 mb-5'>
                     <FaFacebook size={25} color='black'/>
-                    <h3>Name.coffee</h3>
+                    <h3>name.official</h3>
                 </a>
                 <a 
                     href='https://www.instagram.com/felipe_castroz/'

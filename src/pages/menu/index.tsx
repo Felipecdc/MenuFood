@@ -224,11 +224,11 @@ export function Menu(){
                                 rel="noopener noreferrer"
                             >
                                 <FaInstagram size={20} color='black'/>
-                                <h3 className="text-sm">@Abigail.coffee</h3>
+                                <h3 className="text-sm">@name.official</h3>
                             </a>
                             <a href='#' className='flex gap-2'>
                                 <FaFacebook size={20} color='black'/>
-                                <h3 className="text-sm">Abigail.coffee</h3>
+                                <h3 className="text-sm">name.official</h3>
                             </a>
                         </div>
                     </div>
