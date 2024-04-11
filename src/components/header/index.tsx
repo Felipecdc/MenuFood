@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
 import { FaWhatsapp, FaInstagram, FaFacebook } from 'react-icons/fa';
@@ -23,7 +24,7 @@ export function Header() {
 
   return (
     <div className="flex w-full h-12 items-center justify-between px-3 bg-brown-700">
-        <h1 className="text-white font-fredoka-one">Name.official</h1>
+        <Link to={"/"} className="text-white font-fredoka-one">Name.official</Link>
         <div className='hidden md:flex gap-4 items-center justify-center'>
             <a href='#'>
                 <FaWhatsapp size={25} color='white'/>

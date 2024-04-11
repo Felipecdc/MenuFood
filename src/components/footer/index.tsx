@@ -12,7 +12,7 @@ export function Footer(){
                                 Felipe Castro
                             </a>
             </span>
-            <span className="text-slate-800">Name.coffee.io | Todos os direitos reservados</span>
+            <span className="text-slate-800">Name.official.io | Todos os direitos reservados</span>
         </div>
     )
 }
