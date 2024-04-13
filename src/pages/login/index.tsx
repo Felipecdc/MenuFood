@@ -10,6 +10,10 @@ import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 export function Login(){
 
+    useEffect(() => {
+        document.title = "Login - Name Oficial"
+    }, [])
+
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

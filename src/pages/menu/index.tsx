@@ -35,7 +35,7 @@ interface CategoryProps {
 export function Menu(){
 
     useEffect(() => {
-        document.title = "Menu - Abigail Coffee";
+        document.title = "Menu - Name Oficial";
     }, [])
 
     const [mosaicSelected, setMosaicSelected] = useState<MosaicProps[]>([]);

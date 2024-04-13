@@ -40,7 +40,7 @@ interface ItemFoundProps {
 export function Dashboard(){
 
     useEffect(() => {
-        document.title = "Dashboard - Abigail Coffee"
+        document.title = "Dashboard - Name Oficial"
     }, [])
 
     const { user } = useContext(AuthContext);
