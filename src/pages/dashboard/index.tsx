@@ -472,7 +472,7 @@ export function Dashboard(){
             </div>
             <div className="w-full max-w-900 lg:min-w-900 p-5">
                 <div className="flex h-20 p-2 items-center justify-between bg-white rounded-lg">                    
-                    <h1 className="text-lg md:text-xl font-bold">Alterar Mostruario</h1>
+                    <h1 className="text-lg md:text-xl font-bold">Alterar Mostruário</h1>
                     <div className="flex items-center justify-center gap-2">
                         <button className="flex w-7 h-7 items-center justify-center rounded-md bg-gray-400"
                             onClick={handlePrev}
@@ -571,7 +571,7 @@ export function Dashboard(){
             </div>
             <div className="w-full max-w-900 lg:min-w-900 p-5">
                 <div className="flex p-2 rounded-t-lg bg-white">
-                    <h1>Criar novo item</h1>
+                    <h1 className="text-xl font-bold">Criar novo item</h1>
                 </div>
                 <div className="flex flex-col items-start md:items-center justify-center md:flex-row rounded-b-lg bg-white-50%">
                     <div className="flex w-1/2 items-center justify-center">
@@ -616,7 +616,7 @@ export function Dashboard(){
                                 <h1>Titulo</h1>
                                 <input 
                                     type="text" 
-                                    placeholder="Ditie o nome do produto" 
+                                    placeholder="Digite o nome do produto" 
                                     ref={titleRef}
                                     className="rounded-md border h-9 border-gray-400 mb-2 px-2 py-1"
                                 />
@@ -654,7 +654,7 @@ export function Dashboard(){
                                         <h1>Nova Categoria</h1>
                                         <input 
                                             type="text" 
-                                            placeholder="Ex: Cappucino"
+                                            placeholder="Ex: Frios"
                                             ref={newCategoryRef} 
                                             className="rounded-md border h-9 border-gray-400 mb-2 px-2 py-1"
                                         />
