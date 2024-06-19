@@ -14,6 +14,9 @@ Adicionalmente, há uma tela de dashboard protegida por login para o proprietár
 - Editar e excluir itens através de pesquisa por nome.
 - Adicionar novos itens ao cardápio.
 
+# Deploy Vercel
+![Clique aqui!](https://menu-food-kappa.vercel.app/)
+
 ## 🛠️ Tech Stack
 
 Utilizamos as seguintes tecnologias para desenvolver este projeto:
