@@ -1,30 +1,29 @@
-# React + TypeScript + Vite
+# Menu Food
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é um site voltado para cafeterias, oferecendo um cardápio online interativo. O site inclui uma tela inicial (home) com um mosaico que exibe imagens e nomes dos itens destacados. Além disso, possui funcionalidades como:
 
-Currently, two official plugins are available:
+- Um campo de pesquisa para filtragem de itens.
+- Botões de categorias para facilitar a navegação.
+- Uma área de visualização expandida (overflow) para mostrar os itens filtrados ou todos os itens disponíveis.
+- Informações de localização e mapa.
+- Um rodapé que credita o criador do site.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Adicionalmente, há uma tela de dashboard protegida por login para o proprietário, permitindo:
 
-## Expanding the ESLint configuration
+- Alterar dinamicamente o conteúdo exibido no mosaico.
+- Editar e excluir itens através de pesquisa por nome.
+- Adicionar novos itens ao cardápio.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🛠️ Tech Stack
 
-- Configure the top-level `parserOptions` property like this:
+Utilizamos as seguintes tecnologias para desenvolver este projeto:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+![Vite](https://img.shields.io/badge/-Vite-646CFF?style=flat&logo=vite&logoColor=white)
+![React](https://img.shields.io/badge/-React-333333?style=flat&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=firebase&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Demonstração
+
+![gif do site](https://github.com/Felipecdc/MenuFood/blob/main/202406191824.gif)
