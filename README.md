@@ -15,7 +15,9 @@ Adicionalmente, há uma tela de dashboard protegida por login para o proprietár
 - Adicionar novos itens ao cardápio.
 
 # Deploy Vercel
-![Clique aqui!](https://menu-food-kappa.vercel.app/)
+
+Para visualizar o projeto hospedado no Vercel, clique [aqui](https://menu-food-kappa.vercel.app/).
+
 
 ## 🛠️ Tech Stack
 
